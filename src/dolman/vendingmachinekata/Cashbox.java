@@ -30,4 +30,8 @@ public class Cashbox {
 		return coinToReturn;
 	}
 
+	public void activateCoinReturn() {
+		
+	}
+
 }

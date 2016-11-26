@@ -49,6 +49,13 @@ public class VendingMachineCashierTest {
 		underTest.insertCoin("Nonsense");
 		Assert.assertEquals("Nonsense", underTest.returnCoin());
 	}
+	
+	@Test
+	public void whenANickelIsInsertedAndReturnCoinActivatedThenReturnANickel () {
+		underTest.insertCoin("Nickel");
+		underTest.activateCoinReturn();
+		Assert.assertEquals("Nickel", underTest.returnCoin());
+	}
 
 
 }
