@@ -4,8 +4,10 @@ public class Cashbox {
 
 	private Integer cashInserted = 0;
 	private String coinToReturn; 
+	private String coin;
 	
 	public void insertCoin(String coin) {
+		this.coin = coin;
 		switch(coin) {
 		case "Nickel":
 			cashInserted += 5;
@@ -31,6 +33,7 @@ public class Cashbox {
 	}
 
 	public void activateCoinReturn() {
+		coinToReturn = coin;
 		
 	}
 
