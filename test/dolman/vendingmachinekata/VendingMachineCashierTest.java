@@ -64,10 +64,17 @@ public class VendingMachineCashierTest {
 	}
 	
 	@Test
-	public void whenAColaIsPurchasedThenNumberOfColasInInventoryDecreasesBy1() {
+	public void whenAColaIsPurchasedThenNumberOfColasInInventoryDecreasesBy1SoThereAre4Left() {
 		GoodsInventory underTestGoodsInventory = new GoodsInventory(5,0,0);
 		underTestGoodsInventory.purchase("Cola");
 		Assert.assertEquals(4, underTestGoodsInventory.messageInventory()[0]);
+	}
+	
+	@Test
+	public void whenAColaIsPurchasedThenNumberOfColasInInventoryDecreasesBy1SoThereAre6Left() {
+		GoodsInventory underTestGoodsInventory = new GoodsInventory(7,0,0);
+		underTestGoodsInventory.purchase("Cola");
+		Assert.assertEquals(6, underTestGoodsInventory.messageInventory()[0]);
 	}
 
 
