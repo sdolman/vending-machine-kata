@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cashbox {
 
-	private Integer cashInserted = 0;
+	private Integer totalValueofCoinsInserted = 0;
 	private List<String> coinsToReturn = new ArrayList<String>(); 
 	private List<String> coinsInserted = new ArrayList<String>();
 	private String coin;
@@ -14,15 +14,15 @@ public class Cashbox {
 		this.coin = coin;
 		switch(coin) {
 		case "Nickel":
-			cashInserted += 5;
+			totalValueofCoinsInserted += 5;
 			coinsInserted.add(coin);
 			break;
 		case "Dime":
-			cashInserted += 10;
+			totalValueofCoinsInserted += 10;
 			coinsInserted.add(coin);
 			break;
 		case "Quarter":
-			cashInserted += 25;
+			totalValueofCoinsInserted += 25;
 			coinsInserted.add(coin);
 			break;
 		default:
@@ -32,7 +32,7 @@ public class Cashbox {
 	}
 
 	public String getCashInserted() {
-		return cashInserted.toString();
+		return totalValueofCoinsInserted.toString();
 	}
 	
 
@@ -42,7 +42,7 @@ public class Cashbox {
 
 	public void activateCoinReturn() {
 		coinsToReturn.addAll(coinsInserted);
-		cashInserted = 0;
+		totalValueofCoinsInserted = 0;
 	}
 
 }
