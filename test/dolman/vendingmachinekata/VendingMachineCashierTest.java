@@ -33,6 +33,11 @@ public class VendingMachineCashierTest {
 		Assert.assertEquals("15", underTest.getCashInserted());
 	}
 	
+	@Test
+	public void whenAQuarterIsInsertedThenTotalCashInsertedIncreasesBy25() {
+		underTest.insertCoin("Quarter");
+		Assert.assertEquals("25", underTest.getCashInserted());
+	}
 
 
 }
