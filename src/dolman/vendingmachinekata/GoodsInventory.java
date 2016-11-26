@@ -13,12 +13,12 @@ public class GoodsInventory {
 	}
 
 	public int[] messageInventory() {
-		int[] inventory = {4}; 
+		int[] inventory = {colas,chips,candy}; 
 		return inventory;
 	}
 
 	public void purchase(String purchasedItem) {
-		
+		colas--;
 	}
 
 }
