@@ -38,6 +38,11 @@ public class VendingMachineCashierTest {
 		underTest.insertCoin("Quarter");
 		Assert.assertEquals("25", underTest.getCashInserted());
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowException() {
+		underTest.insertCoin("Nonsense");
+	}
 
 
 }
