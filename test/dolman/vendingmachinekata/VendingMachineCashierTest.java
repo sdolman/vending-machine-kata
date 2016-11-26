@@ -19,5 +19,14 @@ public class VendingMachineCashierTest {
 		underTest.insertCoin("Dime");
 		Assert.assertEquals("10", underTest.getCashInserted());		
 	}
+	
+	@Test
+	public void whenANickelAndADimeAreInsertedThenTotalCashInsertedIncreasesBy15() {
+		Cashbox underTest = new Cashbox();
+		underTest.insertCoin("Nickel");
+		underTest.insertCoin("Dime");
+		Assert.assertEquals("15", underTest.getCashInserted());
+		
+	}
 
 }
