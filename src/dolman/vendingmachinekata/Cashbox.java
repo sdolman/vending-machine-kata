@@ -12,6 +12,9 @@ public class Cashbox {
 		case "Dime":
 			cashInserted += 10;
 			break;
+		case "Quarter":
+			cashInserted += 25;
+			break;
 		}
 	}
 
