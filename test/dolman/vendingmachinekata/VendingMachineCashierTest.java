@@ -26,7 +26,6 @@ public class VendingMachineCashierTest {
 		underTest.insertCoin("Nickel");
 		underTest.insertCoin("Dime");
 		Assert.assertEquals("15", underTest.getCashInserted());
-		
 	}
 
 }
