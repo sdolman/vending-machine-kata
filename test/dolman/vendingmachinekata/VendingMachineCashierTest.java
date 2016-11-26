@@ -1,9 +1,13 @@
 package dolman.vendingmachinekata;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import static org.hamcrest.CoreMatchers.containsString;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 
 public class VendingMachineCashierTest {
 	
@@ -39,9 +43,15 @@ public class VendingMachineCashierTest {
 		Assert.assertEquals("25", underTest.getCashInserted());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowException() {
+	@Rule public ExpectedException exception = ExpectedException.none();
+	
+	
+	@Test
+	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowExceptionAndReturnCoin() throws IllegalArgumentException {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage(containsString("Nonsense"));
 		underTest.insertCoin("Nonsense");
+		Assert.assertEquals("Nonsense", underTest.returnCoin());
 	}
 
 

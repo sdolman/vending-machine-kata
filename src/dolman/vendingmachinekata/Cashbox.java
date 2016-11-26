@@ -23,5 +23,10 @@ public class Cashbox {
 	public String getCashInserted() {
 		return cashInserted.toString();
 	}
+	
+
+	public String returnCoin() {
+		return null;
+	}
 
 }
