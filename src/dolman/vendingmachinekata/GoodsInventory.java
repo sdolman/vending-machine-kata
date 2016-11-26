@@ -19,6 +19,7 @@ public class GoodsInventory {
 
 	public void purchase(String purchasedItem) {
 		colas--;
+		chips--;
 	}
 
 }
