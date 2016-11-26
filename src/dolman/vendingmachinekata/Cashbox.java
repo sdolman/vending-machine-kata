@@ -7,6 +7,7 @@ public class Cashbox {
 
 	private Integer cashInserted = 0;
 	private List<String> coinsToReturn = new ArrayList<String>(); 
+	private List<String> coinsInserted = new ArrayList<String>();
 	private String coin;
 	
 	public void insertCoin(String coin) {
@@ -14,16 +15,20 @@ public class Cashbox {
 		switch(coin) {
 		case "Nickel":
 			cashInserted += 5;
+			coinsInserted.add(coin);
 			break;
 		case "Dime":
 			cashInserted += 10;
+			coinsInserted.add(coin);
 			break;
 		case "Quarter":
 			cashInserted += 25;
+			coinsInserted.add(coin);
 			break;
 		default:
 			coinsToReturn.add(coin);
 		}
+		
 	}
 
 	public String getCashInserted() {
@@ -36,8 +41,8 @@ public class Cashbox {
 	}
 
 	public void activateCoinReturn() {
-		coinsToReturn.add(coin);
-		
+		coinsToReturn.addAll(coinsInserted);
+		cashInserted = 0;
 	}
 
 }

@@ -56,6 +56,7 @@ public class VendingMachineCashierTest {
 	public void whenANickelAndADimeAreInsertedAndReturnCoinActivatedThenReturnANickelAndADime() {
 		underTest.insertCoin("Nickel");
 		underTest.insertCoin("Dime");
+		Assert.assertEquals("15", underTest.getCashInserted());
 		underTest.activateCoinReturn();
 		Assert.assertEquals("Nickel", underTest.returnCoin().get(0));
 		Assert.assertEquals("Dime", underTest.returnCoin().get(1));
