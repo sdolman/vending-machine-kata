@@ -76,6 +76,13 @@ public class VendingMachineCashierTest {
 		underTestGoodsInventory.purchase("Cola");
 		Assert.assertEquals(6, (underTestGoodsInventory.messageInventory())[0]);
 	}
+	
+	@Test
+	public void whenAChipsBagIsPurchasedThenNumberOfChipsBagsInInventoryDecreasesBy1SoThereAre2Left() {
+		GoodsInventory underTestGoodsInventory = new GoodsInventory(0,3,0);
+		underTestGoodsInventory.purchase("Chips");
+		Assert.assertEquals(2, (underTestGoodsInventory.messageInventory())[1]);
+	}
 
 
 }
