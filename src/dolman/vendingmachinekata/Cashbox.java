@@ -15,6 +15,8 @@ public class Cashbox {
 		case "Quarter":
 			cashInserted += 25;
 			break;
+		default:
+			throw new IllegalArgumentException("Invalid coin type: " + coin);
 		}
 	}
 
