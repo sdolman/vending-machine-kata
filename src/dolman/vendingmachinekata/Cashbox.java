@@ -1,11 +1,12 @@
 package dolman.vendingmachinekata;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cashbox {
 
 	private Integer cashInserted = 0;
-	private ArrayList coinToReturn; 
+	private List<String> coinsToReturn = new ArrayList<String>(); 
 	private String coin;
 	
 	public void insertCoin(String coin) {
@@ -21,7 +22,7 @@ public class Cashbox {
 			cashInserted += 25;
 			break;
 		default:
-			coinToReturn = coin;
+			coinsToReturn.add(coin);
 		}
 	}
 
@@ -30,12 +31,12 @@ public class Cashbox {
 	}
 	
 
-	public ArrayList returnCoin() {
-		return coinToReturn;
+	public List<String> returnCoin() {
+		return coinsToReturn;
 	}
 
 	public void activateCoinReturn() {
-		coinToReturn = coin;
+		coinsToReturn.add(coin);
 		
 	}
 

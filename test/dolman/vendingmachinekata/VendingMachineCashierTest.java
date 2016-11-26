@@ -42,14 +42,14 @@ public class VendingMachineCashierTest {
 	@Test
 	public void whenAnInvalidCoinLikeAPennyIsInsertedThenReturnCoin() {
 		underTest.insertCoin("Nonsense");
-		Assert.assertEquals("Nonsense", underTest.returnCoin());
+		Assert.assertEquals("Nonsense", underTest.returnCoin().get(0));
 	}
 	
 	@Test
 	public void whenANickelIsInsertedAndReturnCoinActivatedThenReturnANickel () {
 		underTest.insertCoin("Nickel");
 		underTest.activateCoinReturn();
-		Assert.assertEquals("Nickel", underTest.returnCoin());
+		Assert.assertEquals("Nickel", underTest.returnCoin().get(0));
 	}
 	
 	@Test
@@ -59,6 +59,7 @@ public class VendingMachineCashierTest {
 		underTest.activateCoinReturn();
 		Assert.assertEquals("Nickel", underTest.returnCoin().get(0));
 		Assert.assertEquals("Dime", underTest.returnCoin().get(1));
+		Assert.assertEquals("0", underTest.getCashInserted());
 	}
 
 
