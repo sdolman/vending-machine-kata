@@ -18,13 +18,16 @@ public class GoodsInventory {
 	}
 
 	public void purchase(String purchasedItem) {
-		switch(purchasedItem) {
-		case "Cola" :
-		colas--;
-		break;
-		case "Chips" :
-		chips--;
-		break;
+		switch (purchasedItem) {
+		case "Cola":
+			colas--;
+			break;
+		case "Chips":
+			chips--;
+			break;
+		case "Candy":
+			candy--;
+			break;
 		}
 	}
 
