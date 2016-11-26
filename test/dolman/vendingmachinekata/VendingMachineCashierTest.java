@@ -43,13 +43,9 @@ public class VendingMachineCashierTest {
 		Assert.assertEquals("25", underTest.getCashInserted());
 	}
 	
-	@Rule public ExpectedException exception = ExpectedException.none();
-	
 	
 	@Test
-	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowExceptionAndReturnCoin() throws IllegalArgumentException {
-		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage(containsString("Nonsense"));
+	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowExceptionAndReturnCoin() {
 		underTest.insertCoin("Nonsense");
 		Assert.assertEquals("Nonsense", underTest.returnCoin());
 	}
