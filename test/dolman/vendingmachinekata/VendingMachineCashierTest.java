@@ -1,13 +1,8 @@
 package dolman.vendingmachinekata;
 
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import static org.hamcrest.CoreMatchers.containsString;
-
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
+import org.junit.Test;
 
 public class VendingMachineCashierTest {
 	
