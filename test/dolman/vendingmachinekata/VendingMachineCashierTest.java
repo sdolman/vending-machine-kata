@@ -3,29 +3,36 @@ package dolman.vendingmachinekata;
 import org.junit.Test;
 
 import org.junit.Assert;
+import org.junit.Before;
 
 public class VendingMachineCashierTest {
 	
+	Cashbox underTest;
+	
+	@Before
+	public void setupCashbox() {
+		underTest = new Cashbox();
+	}
+	
 	@Test
 	public void whenANickelIsInsertedThenTotalCashInsertedIncreasesBy5() {
-		Cashbox underTest = new Cashbox();
 		underTest.insertCoin("Nickel");
 		Assert.assertEquals("5", underTest.getCashInserted());		
 	}
 	
 	@Test
 	public void whenADimeIsInsertedThenTotalCashInsertedIncreasesBy10() {
-		Cashbox underTest = new Cashbox();
 		underTest.insertCoin("Dime");
 		Assert.assertEquals("10", underTest.getCashInserted());		
 	}
 	
 	@Test
 	public void whenANickelAndADimeAreInsertedThenTotalCashInsertedIncreasesBy15() {
-		Cashbox underTest = new Cashbox();
 		underTest.insertCoin("Nickel");
 		underTest.insertCoin("Dime");
 		Assert.assertEquals("15", underTest.getCashInserted());
 	}
+	
+
 
 }
