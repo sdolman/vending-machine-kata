@@ -3,6 +3,7 @@ package dolman.vendingmachinekata;
 public class Cashbox {
 
 	private Integer cashInserted = 0;
+	private String coinToReturn; 
 	
 	public void insertCoin(String coin) {
 		switch(coin) {
@@ -15,6 +16,8 @@ public class Cashbox {
 		case "Quarter":
 			cashInserted += 25;
 			break;
+		default:
+			coinToReturn = coin;
 		}
 	}
 
@@ -24,7 +27,7 @@ public class Cashbox {
 	
 
 	public String returnCoin() {
-		return null;
+		return coinToReturn;
 	}
 
 }

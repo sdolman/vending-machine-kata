@@ -45,7 +45,7 @@ public class VendingMachineCashierTest {
 	
 	
 	@Test
-	public void whenAnInvalidCoinLikeAPennyIsInsertedThenThrowExceptionAndReturnCoin() {
+	public void whenAnInvalidCoinLikeAPennyIsInsertedThenReturnCoin() {
 		underTest.insertCoin("Nonsense");
 		Assert.assertEquals("Nonsense", underTest.returnCoin());
 	}
