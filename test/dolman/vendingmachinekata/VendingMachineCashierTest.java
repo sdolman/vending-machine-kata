@@ -91,6 +91,15 @@ public class VendingMachineCashierTest {
 		Assert.assertEquals(6, (underTestGoodsInventory.messageInventory())[0]);
 		Assert.assertEquals(13, (underTestGoodsInventory.messageInventory())[1]);
 	}
+	
+	@Test
+	public void whenACandyBagIsPurchasedThenTheNumberOfCandyBagsInInventoryDecreasesBy1SoThereAre11LeftButNumberOfColasAndChipsBagsRemainsUnchanged() {
+		GoodsInventory underTestGoodsInventory = new GoodsInventory(7,13,12);
+		underTestGoodsInventory.purchase("Candy");
+		Assert.assertEquals(7, (underTestGoodsInventory.messageInventory())[0]);
+		Assert.assertEquals(13, (underTestGoodsInventory.messageInventory())[1]);
+		Assert.assertEquals(11, (underTestGoodsInventory.messageInventory())[2]);
+	}
 
 
 }
