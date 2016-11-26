@@ -13,7 +13,8 @@ public class GoodsInventory {
 	}
 
 	public int[] messageInventory() {
-		return null;
+		int[] inventory = {4}; 
+		return inventory;
 	}
 
 	public void purchase(String purchasedItem) {
