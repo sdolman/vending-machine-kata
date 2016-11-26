@@ -6,61 +6,68 @@ import org.junit.Test;
 
 public class VendingMachineCashierTest {
 	
-	Cashbox underTest;
+	Cashbox underTestCashbox;
 	
 	@Before
 	public void setupCashbox() {
-		underTest = new Cashbox();
+		underTestCashbox = new Cashbox();
 	}
 	
 	@Test
 	public void whenANickelIsInsertedThenTotalCashInsertedIncreasesBy5() {
-		underTest.insertCoin("Nickel");
-		Assert.assertEquals("5", underTest.getCashInserted());		
+		underTestCashbox.insertCoin("Nickel");
+		Assert.assertEquals("5", underTestCashbox.getCashInserted());		
 	}
 	
 	@Test
 	public void whenADimeIsInsertedThenTotalCashInsertedIncreasesBy10() {
-		underTest.insertCoin("Dime");
-		Assert.assertEquals("10", underTest.getCashInserted());		
+		underTestCashbox.insertCoin("Dime");
+		Assert.assertEquals("10", underTestCashbox.getCashInserted());		
 	}
 	
 	@Test
 	public void whenANickelAndADimeAreInsertedThenTotalCashInsertedIncreasesBy15() {
-		underTest.insertCoin("Nickel");
-		underTest.insertCoin("Dime");
-		Assert.assertEquals("15", underTest.getCashInserted());
+		underTestCashbox.insertCoin("Nickel");
+		underTestCashbox.insertCoin("Dime");
+		Assert.assertEquals("15", underTestCashbox.getCashInserted());
 	}
 	
 	@Test
 	public void whenAQuarterIsInsertedThenTotalCashInsertedIncreasesBy25() {
-		underTest.insertCoin("Quarter");
-		Assert.assertEquals("25", underTest.getCashInserted());
+		underTestCashbox.insertCoin("Quarter");
+		Assert.assertEquals("25", underTestCashbox.getCashInserted());
 	}
 	
 	
 	@Test
 	public void whenAnInvalidCoinLikeAPennyIsInsertedThenReturnCoin() {
-		underTest.insertCoin("Nonsense");
-		Assert.assertEquals("Nonsense", underTest.returnCoin().get(0));
+		underTestCashbox.insertCoin("Nonsense");
+		Assert.assertEquals("Nonsense", underTestCashbox.returnCoin().get(0));
 	}
 	
 	@Test
 	public void whenANickelIsInsertedAndReturnCoinActivatedThenReturnANickel () {
-		underTest.insertCoin("Nickel");
-		underTest.activateCoinReturn();
-		Assert.assertEquals("Nickel", underTest.returnCoin().get(0));
+		underTestCashbox.insertCoin("Nickel");
+		underTestCashbox.activateCoinReturn();
+		Assert.assertEquals("Nickel", underTestCashbox.returnCoin().get(0));
 	}
 	
 	@Test
 	public void whenANickelAndADimeAreInsertedAndReturnCoinActivatedThenReturnANickelAndADimeAndCashInsertedResetsTo0() {
-		underTest.insertCoin("Nickel");
-		underTest.insertCoin("Dime");
-		Assert.assertEquals("15", underTest.getCashInserted());
-		underTest.activateCoinReturn();
-		Assert.assertEquals("Nickel", underTest.returnCoin().get(0));
-		Assert.assertEquals("Dime", underTest.returnCoin().get(1));
-		Assert.assertEquals("0", underTest.getCashInserted());
+		underTestCashbox.insertCoin("Nickel");
+		underTestCashbox.insertCoin("Dime");
+		Assert.assertEquals("15", underTestCashbox.getCashInserted());
+		underTestCashbox.activateCoinReturn();
+		Assert.assertEquals("Nickel", underTestCashbox.returnCoin().get(0));
+		Assert.assertEquals("Dime", underTestCashbox.returnCoin().get(1));
+		Assert.assertEquals("0", underTestCashbox.getCashInserted());
+	}
+	
+	@Test
+	public void whenAColaIsPurchasedThenNumberOfColasInInventoryDecreasesBy1() {
+		GoodsInventory underTestGoodsInventory = new GoodsInventory(5,0,0);
+		underTestGoodsInventory.purchase("Cola");
+		Assert.assertEquals(4, underTestGoodsInventory.messageInventory()[0]);
 	}
 
 
