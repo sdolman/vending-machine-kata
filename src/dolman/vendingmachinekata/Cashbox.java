@@ -7,7 +7,7 @@ public class Cashbox {
 	}
 
 	public String getCashInserted() {
-		return null;
+		return "5";
 	}
 
 }
